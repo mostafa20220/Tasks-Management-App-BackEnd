@@ -1,0 +1,42 @@
+import { Builder, By } from 'selenium-webdriver';
+
+import assert from 'assert';
+import { after, before, it, describe } from 'mocha';
+
+type UserLinkedinInfo = { name: string; avatar: string } | null;
+
+export async function getUserLinkedinInfo(profileUrl: string) {
+  // : Promise<UserLinkedinInfo>
+  describe('First script', function () {
+    this.timeout(5000); // Set a longer timeout if necessary
+    let driver;
+
+    before(async function () {
+      driver = await new Builder().forBrowser('firefox').build();
+    });
+
+    it('First Selenium script', async function () {
+      await driver.get(profileUrl);
+
+      const title = await driver.getTitle();
+      console.log('title:', title);
+      assert.equal('Web form', title);
+      const [firstName, lastName] = title.split(' ');
+      const name = `${firstName} ${lastName}`;
+      await driver.manage().setTimeouts({ implicit: 500 });
+
+      const avatar = await driver
+        .findElement(By.css('.pv-top-card--photo img'))
+        .getAttribute('src');
+      console.log('fullName:', name);
+      console.log('imgSrc:', avatar);
+
+      return { name, avatar };
+    });
+
+    after(async () => {
+      this.timeout(5000);
+      await driver.quit();
+    });
+  });
+}

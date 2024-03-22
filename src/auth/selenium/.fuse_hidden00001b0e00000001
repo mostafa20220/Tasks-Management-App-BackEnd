@@ -1,0 +1,66 @@
+import { By, Builder, WebDriver } from 'selenium-webdriver';
+export async function getTitle(url: string) {
+  // describe('First script', function () {
+
+  let driver: WebDriver;
+  try {
+    // before(async function () {
+    driver = await new Builder()
+      .forBrowser('chrome')
+      .usingServer('http://localhost:4444/wd/hub')
+      .build();
+    // });
+
+    // after(async () => await driver.quit());
+
+    // it('First Selenium script', async function () {
+    // await driver.get('https://www.selenium.dev/selenium/web/web-form.html');
+
+    // let title = await driver.getTitle();
+    // assert.equal('Web form', title);
+
+    // await driver.manage().setTimeouts({ implicit: 500 });
+
+    // let textBox = await driver.findElement(By.name('my-text'));
+    // let submitButton = await driver.findElement(By.css('button'));
+
+    // await textBox.sendKeys('Selenium');
+    // await submitButton.click();
+
+    // let message = await driver.findElement(By.id('message'));
+    // let value = await message.getText();
+    // assert.equal('Received!', value);
+    // await driver.quit();
+
+    // const userData = {
+    //   message,
+    //   value,
+    // };
+
+    // console.log('userData:', userData);
+
+    // return userData;
+
+    await driver.get(url);
+
+    const title = await driver.getTitle();
+    console.log('title:', title);
+    return title;
+    // assert.equal('Web form', title);
+    // const [firstName, lastName] = title.split(' ');
+    // const name = `${firstName} ${lastName}`;
+    // await driver.manage().setTimeouts({ implicit: 500 });
+
+    // const avatar = await driver
+    // .findElement(By.css('.pv-top-card--photo img'))
+    // .getAttribute('src');
+    // console.log('fullName:', name);
+    // console.log('imgSrc:', avatar);
+
+    // return { name, avatar };
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await driver.quit();
+  }
+}

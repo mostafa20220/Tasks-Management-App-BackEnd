@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/50732049-2090-4dae-8f92-966c08b67bcc/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Tasks-Management-App",
+  "appService.deploySubpath": "."
+}
