@@ -26,21 +26,23 @@ async function GetSeleniumReady() {
 
   try {
     console.log('Starting Scraping LinkedIn Profile Session...');
-    const host = 'localhost';
-
+    
     const chromeOptions = {
       detach: true,
     };
-
+    
     const capabilities = Capabilities.chrome().set(
       'goog:chromeOptions',
       chromeOptions,
-    );
-
+      );
+      
+    // const host = 'localhost';
+    const host = 'selenium-hub';
     SELENIUM_DRIVER = await new Builder()
       .withCapabilities(capabilities)
       .forBrowser('chrome')
-      .usingServer(`http://${host}:4444/wd/hub`)
+      // .usingServer(`http://${host}:4444/wd/hub`)
+      .usingServer(`http://${host}:4444`)
       .build();
   } catch (e) {
     console.log('Ending Starting Selenium Session With Error...');

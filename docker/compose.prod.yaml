@@ -4,4 +4,5 @@ services:
       target: production
     environment:
       - NODE_ENV=production
-    
+    ports:
+      - "3030:3030"
