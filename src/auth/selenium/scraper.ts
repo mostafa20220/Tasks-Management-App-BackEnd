@@ -36,8 +36,8 @@ async function GetSeleniumReady() {
       chromeOptions,
       );
       
-    // const host = 'localhost';
-    const host = 'selenium-hub';
+    const host = 'localhost';
+    // const host = 'selenium-hub';
     SELENIUM_DRIVER = await new Builder()
       .withCapabilities(capabilities)
       .forBrowser('chrome')

@@ -1,13 +1,13 @@
 services:
-  app:
-    build:
-      target: development
-    environment:
-      - NODE_ENV=development
-    ports:
-      - 3030:3030
-    # volumes:
-    # - ../dist/:/app/dist:ro
+  # app:
+  #   build:
+  #     target: development
+  #   environment:
+  #     - NODE_ENV=development
+  #   ports:
+  #     - 3030:3030
+  #   # volumes:
+  #   # - ../dist/:/app/dist:ro
 
 
 

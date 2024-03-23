@@ -12,15 +12,15 @@ async function GetSeleniumReady() {
     }
     try {
         console.log('Starting Scraping LinkedIn Profile Session...');
-        const host = 'localhost';
         const chromeOptions = {
             detach: true,
         };
         const capabilities = selenium_webdriver_1.Capabilities.chrome().set('goog:chromeOptions', chromeOptions);
+        const host = 'localhost';
         SELENIUM_DRIVER = await new selenium_webdriver_1.Builder()
             .withCapabilities(capabilities)
             .forBrowser('chrome')
-            .usingServer(`http://${host}:4444/wd/hub`)
+            .usingServer(`http://${host}:4444`)
             .build();
     }
     catch (e) {

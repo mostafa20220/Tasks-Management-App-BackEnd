@@ -1,16 +1,16 @@
 services:
-  app:
-    build:
-      context: ..
-      dockerfile: docker/dockerfile
-    image: mostafah01/tasks-managment-app:fix-dockerfile
-    env_file:
-      - ../.env
-    depends_on:
-      - mongodb
-      - redis
-      - selenium-hub
-    # volumes:
+  # app:
+  #   build:
+  #     context: ..
+  #     dockerfile: docker/dockerfile
+  #   image: mostafah01/tasks-managment-app:fix-dockerfile
+  #   env_file:
+  #     - ../.env
+  #   depends_on:
+  #     - mongodb
+  #     - redis
+  #     - selenium-hub
+  #   # volumes:
 
 
 
